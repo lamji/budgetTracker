@@ -290,7 +290,7 @@ if(categoryName === "Add Category"){
                             </Col>
                         </Row>
                     </Col>
-                    <h6 className="text-center"><Button variant="outline-primary" className="button text-muted ml-1 w-100  mx-3" type="submit" id="submitBtn2">Add Income</Button></h6>
+                    <Button variant="outline-primary" className="button text-muted ml-1 w-100  mx-3" type="submit" id="submitBtn2">Add Income</Button>
                 </Row>
             </Form>
             </>
@@ -342,7 +342,7 @@ if(categoryName === "Add Category"){
                             </Col>
                         </Row>
                     </Col>
-                    <h6 className="text-center"><Button variant="outline-primary" className="button text-muted ml-1 w-100 mx-3 " type="submit" id="submitBtn2">Add Expeses</Button></h6>
+                    <Button variant="outline-primary" className="button text-muted ml-1 w-100 mx-3 " type="submit" id="submitBtn2">Add Expeses</Button>
                 </Row>
             </Form>
             </>
