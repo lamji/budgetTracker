@@ -1,0 +1,312 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Commissioner', sans-serif;
+}
+.bodyContent{
+    height: 400px !important;
+    overflow: auto;
+}
+#recordShow{
+    display: none;
+}
+th {
+    background: white !important;
+    position: sticky !important;
+    top: 0 !important; /* Don't forget this, required for the stickiness */
+    z-index: 1000;
+  }
+.headColor{
+    background-color: #083f59 !important;
+}
+#button{
+    background-color: #fea514 !important;
+}
+hr{
+    background-color: white !important;
+}
+.getJumbo{
+    background: url("../public/getstarted.jpg")no-repeat center center fixed;
+    background-size: cover;
+    border-radius: 0 !important;
+    height: 600px !important;
+}
+.welcomeText{
+    width: 40% !important;
+    margin: 0 auto !important;
+}
+#chart{
+    background-image: url('../public/Chart.gif');
+    height: 300px !important;
+    margin-bottom: 20px !important;
+    padding-top: 20px !important;
+}
+.sideNav{
+    width: 30% !important;
+    font-size: 12px !important;
+    border-radius: 0 !important;
+    min-height: 500px !important;
+}
+.Grocerybuttonimg{
+    width: 25px !important;
+    margin: 5px !important;
+}
+.container-fluid{
+    margin:auto !important;
+    width: 100% !important;
+    padding: 0 !important;
+}
+.cardHighlight {
+    min-height: 100%;
+}
+.inputText{
+    font-size: 12px !important;
+}
+.cell {cursor: cell;}
+.pointer {cursor: pointer;}
+.inputText:focus{
+    box-shadow: none !important;
+}
+.LoginHolder{
+    width: 60% !important;
+    padding: 40px 100px !important;
+    height: 450px !important;
+    margin-top: 50px !important;
+}
+.subtitle {
+    font-weight: bolder;
+    font-size: large;
+}
+.courseCard {
+    margin-bottom: 25px;
+}
+.jumbotron{
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+.card{
+    border: none !important;
+}
+.card-text{
+    font-size: 12px !important;
+}
+.profile-Img{
+    border-radius: 100px !important;
+    width: 30px !important;
+    margin-right: 10px !important;
+}
+.link-menu{
+    margin: 3px auto !important;
+    font-size: 12px !important;
+    width: 90% !important;
+    padding: 20px 0px !important;
+}
+.fa-facebook{
+margin: 0 5px!important;
+}
+.dropdown-toggle{
+    font-size: 12px !important;
+    width: 100% !important;
+    padding: 19px !important;
+    text-align: left !important;
+    background-color: white !important;
+}
+.dropdown-toggle:hover{
+    font-size: 12px !important;
+    width: 100% !important;
+    text-align: left !important;
+    box-shadow: none !important;
+    background-color: white !important;
+    box-shadow: none !important;
+    border: 1px solid white !important;
+}
+
+.dropdown-toggle:focus{
+    font-size: 12px !important;
+    width: 100% !important;
+    text-align: left !important;
+    box-shadow: none !important;
+    background-color: white !important;
+    box-shadow: none !important;
+    border: 1px solid white !important;
+}
+
+.button{
+    font-size: 12px !important;
+    padding: 7px 10px !important;
+    background-color: white !important;
+    width: 30% !important;
+    margin-top: 5px !important;
+}
+a.nav-link{
+    padding:5px !important;
+}
+a.nav-item.nav-link{
+    font-size: 12px !important;
+    color: gray !important;
+}
+.profile-icon{
+    width: 10px !important;
+    margin-right: 7px !important;
+}
+.edit-icon{
+    text-align: right !important;
+    width: 10px !important;
+}
+.socialButton{
+    padding: 8px 10px !important;
+    border: none !important;
+    width: 30% !important;
+    background-color: white;
+    box-shadow: none !important;
+    border-radius:2px !important ;
+    margin: 0 auto !important;
+}
+.balance{
+    background-color: rgba(0,0,0, 0.3);
+    color:white;
+    padding:10px;
+    width: 40% !important;
+    margin: 30px auto 10px auto !important;
+    text-align: center;
+}
+.addButton.card{
+    background-color: rgba(0,0,0, 0.3);
+    color:white;
+    padding:5px;
+    width: 40% !important;
+    margin: 10px auto !important;
+    text-align: center;
+    border-radius: 30px ;
+}
+select{
+    font-size: 12px !important;
+    color: gray !important;
+    padding: 5px !important;
+}
+.chart{
+    width: 50% !important;
+    margin: 10px auto !important;
+}
+.text-10{
+    font-size: 12px !important;;
+}
+.text-14{
+    font-size: 13px !important;;
+}
+.buttonimg{
+    width: 30px !important;
+    margin:5px !important;
+}
+.login-jumbo{
+    margin: 90px auto !important;
+}
+td{
+    padding: 5px !important;
+}
+.card-image-overlay{
+    padding: 0px !important;
+    width: 100% !important;
+}
+p{
+    color:gray !important;
+}
+.formHolder{
+    width: 60% !important;
+    margin: 0 auto !important;
+}
+.form-control-holder{
+    height: 35px !important;
+}
+a{
+    font-size: 13px !important;
+}
+a:hover{
+    text-decoration: none !important;
+   
+}
+.buttonimgDel{
+    width: 20px !important;
+}
+@media only screen and (max-width: 699px) {
+    .socialButton{
+        padding: 8px 10px !important;
+        border: none !important;
+        width: 39% !important;
+        background-color: white;
+        box-shadow: none !important;
+        border-radius:2px !important ;
+        margin: 0 auto !important;
+    }
+    .welcomeText{
+        width: 90% !important;
+        margin: 0 auto !important;
+    }
+    .formHolder{
+        width: 95% !important;
+        margin: 0 auto !important;
+    }
+    .logo{
+        text-align: center;
+    }
+    .custom-jumbo{
+        width: 100% !important;
+    }
+    .login-jumbo{
+        width: 100% !important;
+    }
+    .container{
+        margin: 50px auto !important;
+        width: 100% !important;
+    }
+    .button{
+        font-size: 12px !important;
+        padding: 7px 10px !important;
+        background-color: white !important;
+        width: 29% !important;
+    }
+    .link-menu{
+        margin: 3px auto !important;
+        font-size: 12px !important;
+        width: 95% !important;
+        padding: 20px 0px !important;
+    }
+    .LoginHolder{
+        padding: 40px !important;
+        height: 450px !important;
+        margin-top: 50px !important;
+    }
+    .balance{
+        width: 80% !important;
+    }
+    .addButton.card{
+        width: 100% !important;
+    }
+   #record{
+       display: none;
+   }
+   #recordShow{
+       display: block;
+   }
+  }
+  @media only screen and (min-width: 770px) {
+    .LoginHolder{
+        padding: 10px !important;
+        height: 350px !important;
+        margin-top: 50px !important;
+    }
+    .socialButton{
+        padding: 8px 10px !important;
+        border: none !important;
+        width: 49% !important;
+        background-color: white;
+        box-shadow: none !important;
+        border-radius:2px !important ;
+        margin: 0 auto !important;
+       
+    }
+  }
