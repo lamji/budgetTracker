@@ -13,7 +13,7 @@ export default function Login(){
     const [description, setDescription] = useState('')
     const [categoryName, setCategoryName] = useState('')
     const [userData, setUserData] = useState('')
-    const [balance, setBalance] = useState(balance)
+    const [balance, setBalance] = useState("")
     const [amountButton, setAmountButton] = useState(false)
     const [expensesButton, setExpensesButton] = useState(false)
     const [amount, setAmount] = useState('')
