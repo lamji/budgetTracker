@@ -13,7 +13,9 @@ export default function Login(){
     const [description, setDescription] = useState('')
     const [categoryName, setCategoryName] = useState('')
     const [userData, setUserData] = useState('')
-    const [balance, setBalance] = useState("")
+    const [balance, setBalance] = useState(`<div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>`)
     const [amountButton, setAmountButton] = useState(false)
     const [expensesButton, setExpensesButton] = useState(false)
     const [amount, setAmount] = useState('')
