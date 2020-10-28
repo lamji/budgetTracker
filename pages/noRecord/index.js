@@ -36,7 +36,7 @@ export default function Login(){
                 <p className="text-white">
                     This is a simple budget tracker App.
                 </p>
-                <p className="text-white">
+                <p className="text-white text-10">
                     For trial version deleting record will not affect your balance and editing record are not include.
                 </p>
                 <Link href="/addData">
