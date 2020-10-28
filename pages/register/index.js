@@ -63,7 +63,6 @@ export default function index() {
                 loginType: "Email"
             })
         }).then(AppHelper.toJSON).then(data => {
-            console.log(data)
             if (typeof data.accessToken !== 'undefined') {
                 localStorage.setItem('token', data.accessToken)
                 retrieveUserDetails(data.accessToken)

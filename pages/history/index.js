@@ -66,7 +66,6 @@ export default function index(){
     var items = ['bill', 'hill', 'dill', 4, 5, 6, 7, 8, 9, 10];
 
     function DeleteThis(userId){
-        console.log(userId)
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -89,7 +88,6 @@ export default function index(){
                   })
                   .then(res => res.json())
                   .then(data => {
-                      console.log(data)
                       Swal.fire(
                         'Deleted!',
                         'Your file has been deleted.',

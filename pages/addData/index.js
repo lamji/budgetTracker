@@ -75,7 +75,6 @@ export default function Login(){
                 return res.categoryName
             })                                                                        
             var unique = Array.from(new Set(categoryRes))                                                                   
-            console.log(unique)
             setCategories(unique)
         })
        

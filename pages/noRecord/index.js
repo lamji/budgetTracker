@@ -18,7 +18,6 @@ export default function Login(){
         })
         .then(res => res.json())
         .then(data => {
-           console.log(data)
            setUserName(data.fullName)
            setEmail(data.email)
            setImage(data.image)
@@ -36,7 +35,7 @@ export default function Login(){
                 <p className="text-white">
                     This is a simple budget tracker App.
                 </p>
-               <Image scr="./NORECORD.png"/>
+               <Image scr="/NoRecord.png"/>
                 <Link href="/addData">
                     <Button variant="primary" className="w-50">Get Started</Button>
                 </Link>
