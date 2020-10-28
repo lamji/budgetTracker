@@ -35,12 +35,11 @@ export default function Login(){
                 <p className="text-white">
                     This is a simple budget tracker App.
                 </p>
-               <Image scr="/NoRecord.png"/>
                 <Link href="/addData">
                     <Button variant="primary" className="w-50">Get Started</Button>
                 </Link>
            </Card>
-           
+           <Image src="/NoRecord.png" fluid />
             </Jumbotron>
        </React.Fragment>
 	)
