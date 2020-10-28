@@ -39,8 +39,8 @@ export default function Login(){
                    <Link href="/addData">
                     <Button variant="primary" className=" mx-auto mb-2 no-record-button" >Get Started</Button>
                 </Link>
-                <Image src="./NoRecord.png" className="norecord-Image mb-2" fluid />
-             <Alert variant="info" className="text-center mx-auto no-record-alert"> POS and inventory feature coming soon!</Alert>
+             <Alert variant="info" className="text-center mx-auto no-record-alert">* POS and inventory feature coming soon! <br />
+             * Deleting and Editing record are not include in trial version.</Alert>
            </Card>
            
             </Jumbotron>
