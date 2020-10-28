@@ -74,7 +74,7 @@ export default function Login(){
                 <Col className="text-center mb-4 px-1">
                 <h6 className="text-muted">Login Using Social Account</h6>
                 <GoogleLogin
-                            clientId="1055007502137-5l881rml4392lgtccl7298h8butc9eoh.apps.googleusercontent.com"
+                            clientId="481882809701-abbu00gnpcn2jo4kqv3hhi7ovv4v38mr.apps.googleusercontent.com"
                             buttonText="Login"
                             onSuccess={ authenticateGoogleToken }
                             onFailure={ authenticateGoogleToken }
