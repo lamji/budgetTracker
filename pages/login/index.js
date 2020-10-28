@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { Card, Jumbotron,Row, Col, Container, Navbar} from 'react-bootstrap'
+import { Card, Jumbotron,Row, Col, Spinner, Navbar} from 'react-bootstrap'
 import { GoogleLogin } from 'react-google-login'
 import Router from 'next/router'
 import Swal from 'sweetalert2'
