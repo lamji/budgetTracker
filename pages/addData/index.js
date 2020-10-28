@@ -214,10 +214,6 @@ if(categoryName === "Add Category"){
 	return(
         <React.Fragment>
         <NavBar />
-        <Container className="shadow mt-4 pb-4">
-        <Card className="p-5" id="chart">
-        <div className="text-center">
-
         {balance === null ?
         <>
         <Button variant="primary" disabled>
@@ -232,12 +228,11 @@ if(categoryName === "Add Category"){
         </Button>
         </>
          : 
-        <>
+         <>
+         <Container className="shadow mt-4 pb-4">
+        <Card className="p-5" id="chart">
+        <div className="text-center">
         {balance < 0 ?<h3 className="balance text-danger">Balance ₱ {ToString(balance)}</h3>  : <h3 className="balance">Balance ₱ {ToString(balance)}</h3> }
-        
-        </>
-        }
-        
         <Card className="addButton">
             <Nav className="justify-content-center" activeKey="/home">
                 <Nav.Item>
@@ -377,6 +372,9 @@ if(categoryName === "Add Category"){
             </Tabs>
         
         </Container>
+        
+         </>
+        }
         </React.Fragment>
 	)
 }
