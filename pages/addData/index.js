@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, Button , Row, Col, Nav, Image,  Container, Tabs, Tab, Spinner, Form} from 'react-bootstrap'
+import { Card, Button , Row, Col, Nav, Image,  Container, Tabs, Tab, Spinner, Form, Jumbotron} from 'react-bootstrap'
 import NavBar from '../navBar/index'
 import History from '../history/index'
 import ToString from '../../toString'
@@ -216,6 +216,7 @@ if(categoryName === "Add Category"){
         <NavBar />
         {balance === null ?
         <>
+        <Jumbotron>
         <Button variant="primary" disabled>
             <Spinner
             as="span"
@@ -226,6 +227,7 @@ if(categoryName === "Add Category"){
             />
             Retrieving data..
         </Button>
+        </Jumbotron>
         </>
          : 
          <>
