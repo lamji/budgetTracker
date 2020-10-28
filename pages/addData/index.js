@@ -13,7 +13,7 @@ export default function Login(){
     const [description, setDescription] = useState('')
     const [categoryName, setCategoryName] = useState('')
     const [userData, setUserData] = useState('')
-    const [balance, setBalance] = useState("Loading...")
+    const [balance, setBalance] = useState(null)
     const [amountButton, setAmountButton] = useState(false)
     const [expensesButton, setExpensesButton] = useState(false)
     const [amount, setAmount] = useState('')
@@ -217,11 +217,27 @@ if(categoryName === "Add Category"){
         <Container className="shadow mt-4 pb-4">
         <Card className="p-5" id="chart">
         <div className="text-center">
-        {balance < 0 ? 
-        <h3 className="balance text-danger">Balance ₱ {ToString(balance)}</h3>  
-        :
-        <h3 className="balance">Balance ₱ {ToString(balance)}</h3> 
+
+        {balance === null ?
+        <>
+        <Button variant="primary" disabled>
+            <Spinner
+            as="span"
+            animation="border"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+            />
+            <span className="sr-only">Loading...</span>
+        </Button>
+        </>
+         : 
+        <>
+        {balance < 0 ?<h3 className="balance text-danger">Balance ₱ {ToString(balance)}</h3>  : <h3 className="balance">Balance ₱ {ToString(balance)}</h3> }
+        
+        </>
         }
+        
         <Card className="addButton">
             <Nav className="justify-content-center" activeKey="/home">
                 <Nav.Item>
