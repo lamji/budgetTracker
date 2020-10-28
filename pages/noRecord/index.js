@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Jumbotron,  Button, Card } from 'react-bootstrap'
+import { Jumbotron,  Button, Card, Image} from 'react-bootstrap'
 import Link from 'next/link'
 import NavBar from '../navBar/index'
 
