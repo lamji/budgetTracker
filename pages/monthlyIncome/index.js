@@ -28,8 +28,8 @@ export default function insights(){
                const filter = data.transactions.filter(res => {
                     return res.type == "Income"
                 })
-                let monthlyIncome = [0,1230,220,0,1000,200,0,7000,0, 0, 0, 0]
-                let Arr =  [240,1000,560,0,0,0,1230,0,3000, 0, 0, 0]
+                let monthlyIncome = [1330, 700,676, 100, 180, 1770, 7500, 600,890, 0, 0, 0]
+                let Arr =  [1330, 700,676, 100, 180, 1770, 7500, 600,890, 0, 0, 0]
                 let YearlyIncome = 0
                 filter.forEach(transaction => {
                     const index = moment(transaction.dateAdded).month()
