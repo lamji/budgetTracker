@@ -39,7 +39,7 @@ export default function Login(){
                    <Link href="/addData">
                     <Button variant="primary" className="w-25 mx-auto mb-2" >Get Started</Button>
                 </Link>
-                <Image src="/NoRecord.png" className="norecord-Image mb-2" fluid />
+                <Image src="./logo2.png" className="norecord-Image mb-2" fluid />
              <Alert variant="info" className="text-center w-50 mx-auto"> POS and inventory feature coming soon!</Alert>
            </Card>
            

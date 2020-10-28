@@ -215,6 +215,7 @@ if(categoryName === "Add Category"){
 	return(
         <React.Fragment>
         <NavBar />
+        <Alert variant="info" className="mx-auto w-50 text-center txt-10">Deleting and Editing record are not include in trial version</Alert>
         <Container className="shadow container-holder">
         <Card className="p-2" id="chart">
         <div className="text-center">
