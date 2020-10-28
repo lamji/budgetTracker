@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, Button , Row, Col, Nav, Image,  Container, Tabs, Tab, Spinner, Form, Jumbotron} from 'react-bootstrap'
+import { Card, Button , Row, Col, Nav, Image,  Container, Tabs, Tab, Spinner, Form} from 'react-bootstrap'
 import NavBar from '../navBar/index'
 import History from '../history/index'
 import ToString from '../../toString'
@@ -214,9 +214,13 @@ if(categoryName === "Add Category"){
 	return(
         <React.Fragment>
         <NavBar />
+        <Container className="shadow mt-4 pb-4">
+        <Card className="p-5" id="chart">
+        <div className="text-center">
+
         {balance === null ?
         <>
-        <Jumbotron>
+        <Jumbotron className="text-center">
         <Button variant="primary" disabled>
             <Spinner
             as="span"
@@ -230,11 +234,12 @@ if(categoryName === "Add Category"){
         </Jumbotron>
         </>
          : 
-         <>
-         <Container className="shadow mt-4 pb-4">
-        <Card className="p-5" id="chart">
-        <div className="text-center">
+        <>
         {balance < 0 ?<h3 className="balance text-danger">Balance ₱ {ToString(balance)}</h3>  : <h3 className="balance">Balance ₱ {ToString(balance)}</h3> }
+        
+        </>
+        }
+        
         <Card className="addButton">
             <Nav className="justify-content-center" activeKey="/home">
                 <Nav.Item>
@@ -374,9 +379,6 @@ if(categoryName === "Add Category"){
             </Tabs>
         
         </Container>
-        
-         </>
-        }
         </React.Fragment>
 	)
 }
