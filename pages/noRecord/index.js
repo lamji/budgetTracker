@@ -39,7 +39,7 @@ export default function Login(){
                     <Button variant="primary" className="w-50">Get Started</Button>
                 </Link>
            </Card>
-           <Image src="/NoRecord.png" fluid />
+           <Image src="https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png" fluid />
             </Jumbotron>
        </React.Fragment>
 	)
