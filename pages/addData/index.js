@@ -186,7 +186,7 @@ export default function Login(){
         if(data === true){
            
                 if(data === true){
-                    setBalance(balance + parseFloat(amount))
+                    setBalance(balance - parseFloat(amount))
                     setAmount('')
                     setDescription('')
                     setCategoryName('')
