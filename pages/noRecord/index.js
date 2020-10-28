@@ -37,10 +37,10 @@ export default function Login(){
                     A simple budget tracker that will manage your expenses and income.
                 </p>
                    <Link href="/addData">
-                    <Button variant="primary" className="w-25 mx-auto mb-2" >Get Started</Button>
+                    <Button variant="primary" className=" mx-auto mb-2 no-record-button" >Get Started</Button>
                 </Link>
-                <Image src="./logo2.jpg" className="norecord-Image mb-2" fluid />
-             <Alert variant="info" className="text-center w-50 mx-auto"> POS and inventory feature coming soon!</Alert>
+                <Image src="./NoRecord.png" className="norecord-Image mb-2" fluid />
+             <Alert variant="info" className="text-center mx-auto no-record-alert"> POS and inventory feature coming soon!</Alert>
            </Card>
            
             </Jumbotron>
