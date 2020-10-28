@@ -30,8 +30,9 @@ export default function Login(){
 	return(
        <React.Fragment>
            <NavBar />
-           <Jumbotron className="text-center">
+           <Jumbotron className="custom-jumbo text-center getJumbo">
            <Card className="p-4 welcomeText bg-dark text-white py-5">
+
                 <p className="text-white text-10">
                     For trial version deleting record will not affect your balance and editing record are not include.
                 </p>
