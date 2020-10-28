@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, Button , Row, Col, Nav, Image,  Container, Tabs, Tab, Alert, Form} from 'react-bootstrap'
+import { Card, Button , Row, Col, Nav, Image,Jumbotron, Spinner,  Container, Tabs, Tab, Alert, Form} from 'react-bootstrap'
 import NavBar from '../navBar/index'
 import History from '../history/index'
 import ToString from '../../toString'
