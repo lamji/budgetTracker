@@ -3,7 +3,7 @@ import moment from 'moment'
 import AppHelper from '../../app-helper'
 import AddComma from '../../toString'
 import Swal from 'sweetalert2'
-import { Alert, Row, Col, Image, Form, Modal, Table, Nav,FormControl,Button } from 'react-bootstrap'
+import { Alert, Row, Col, Image, Form, Modal, Table, Nav,FormControl,Button, Jumbotron, Spinner } from 'react-bootstrap'
 
 export default function index(){
   const [transaction, setTtransaction] =useState([])
@@ -62,7 +62,7 @@ export default function index(){
                 setTtransaction(active)
         }
     })   
-    },[transaction, incomevalue, expensevalue, allvalue]) 
+    },[transaction, incomevalue, expensevalue, allvalue,]) 
     var items = ['bill', 'hill', 'dill', 4, 5, 6, 7, 8, 9, 10];
 
     function DeleteThis(userId){
@@ -121,7 +121,21 @@ export default function index(){
     }
     return(
         <React.Fragment>
-         <Row className="m-0 p-2">
+        {transaction.length === 0 ? 
+            <Jumbotron className="text-center">
+            <Button variant="primary" disabled>
+                <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+                />
+                Retrieving data..
+            </Button>
+            </Jumbotron>
+        : 
+        <><Row className="m-0 p-2">
                     <Col xs={12} md={6} className="text-center bg-dark text-white">
                     <Nav className="justify-content-center mt-3 text-10" activeKey="/home">
                     <Form.Group controlId="expensesCheckBox">
@@ -273,7 +287,8 @@ export default function index(){
                         </tbody>
 					</Table>
 				</Col> 
-                }
+                }</>
+        }
         </React.Fragment>
     )
 }
