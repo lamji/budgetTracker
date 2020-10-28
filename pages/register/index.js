@@ -112,9 +112,6 @@ export default function index() {
                         <Form.Control type="email"  className="inputText" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} required/>
                     </Form.Group>
 
-                    <Form.Group controlId="RecEmail">
-                        <Form.Control type="email"  className="inputText" placeholder="Email Recovery(Optional)" value={recovery} onChange={e => setRecovery(e.target.value)}/>
-                    </Form.Group>
                     
                 <Row className="m-0">
                     <Col className="px-0">
