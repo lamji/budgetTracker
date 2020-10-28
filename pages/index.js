@@ -4,7 +4,7 @@ export default function Home() {
 
   return (
     <React.Fragment>
-      <Container fluid>
+      <Container>
       <Login />
       </Container>
     </React.Fragment>

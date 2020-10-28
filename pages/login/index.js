@@ -1,10 +1,11 @@
 import { useState, useContext } from 'react';
-import { Card, Jumbotron,Row, Col, Spinner, Navbar} from 'react-bootstrap'
+import { Card, Jumbotron,Row, Col, Container, Navbar} from 'react-bootstrap'
 import { GoogleLogin } from 'react-google-login'
 import Router from 'next/router'
 import Swal from 'sweetalert2'
 import UserContext from '../../UserContext';
 import AppHelper from '../../app-helper'
+import FbLogin from '../fbLogin/index'
 import RegLogin from '../reLogin/index'
 
 export default function Login(){
@@ -37,14 +38,6 @@ export default function Login(){
         }
 
         fetch(`${ AppHelper.API_URL }/users/verify-google-id-token`, payload).then(AppHelper.toJSON).then(data => {
-            if(tokenId === null){
-            <p className="text-center">
-            <Spinner animation="grow" role="status">
-            <span className="sr-only">Loading...</span>
-            </Spinner>
-            Wait ...
-            </p>
-            }
             if (typeof data.accessToken !== 'undefined') {
                 localStorage.setItem('token', data.accessToken)
                 retrieveUserDetails(data.accessToken)
@@ -82,14 +75,14 @@ export default function Login(){
                 <Col className="text-center mb-4 px-1">
                 <h6 className="text-muted">Login Using Social Account</h6>
                 <GoogleLogin
-                            clientId="481882809701-abbu00gnpcn2jo4kqv3hhi7ovv4v38mr.apps.googleusercontent.com"
+                            clientId="1055007502137-5l881rml4392lgtccl7298h8butc9eoh.apps.googleusercontent.com"
                             buttonText="Login"
                             onSuccess={ authenticateGoogleToken }
                             onFailure={ authenticateGoogleToken }
                             cookiePolicy={ 'single_host_origin' }
                             className="socialButton p-0 text-centerr"
                         />
-                    {/* <FbLogin /> */}
+                    <FbLogin />
                 </Col>
                 </Col>
             </Row>

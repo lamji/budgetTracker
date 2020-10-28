@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Jumbotron,  Button, Card } from 'react-bootstrap'
+import { Jumbotron, Card, Alert, Button, Image } from 'react-bootstrap'
 import Link from 'next/link'
 import NavBar from '../navBar/index'
 
@@ -30,15 +30,17 @@ export default function Login(){
 	return(
        <React.Fragment>
            <NavBar />
-           <Jumbotron className="custom-jumbo text-center getJumbo">
-           <Card className="p-4 welcomeText bg-dark text-white py-5">
-
-                <p className="text-white text-10">
-                    For trial version deleting record will not affect your balance and editing record are not include.
+           <Jumbotron className="custom-jumbo text-center getJumbo px-0 ">
+           <Card className="p-4 welcomeText text-muted pt-4">
+            <h3>Welcome! <b className="text-primary">{userName}</b> to iTrack </h3>
+                <p className="text-muted text-10">
+                    A simple budget tracker that will manage your expenses and income.
                 </p>
-                <Link href="/addData">
-                    <Button variant="primary">Get Started</Button>
+                   <Link href="/addData">
+                    <Button variant="primary" className="w-25 mx-auto mb-2" >Get Started</Button>
                 </Link>
+                <Image src="/NoRecord.png" className="norecord-Image mb-2" fluid />
+             <Alert variant="info" className="text-center w-50 mx-auto"> POS and inventory feature coming soon!</Alert>
            </Card>
            
             </Jumbotron>
