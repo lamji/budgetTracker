@@ -32,14 +32,15 @@ export default function Login(){
            <Jumbotron className="custom-jumbo text-center getJumbo">
            <Card className="p-4 welcomeText bg-dark text-white py-5">
             <h3>Welcome! <br /> {userName}</h3>
-                <p className="text-white">
+                <p className="text-white text-10">
                     This is a simple budget tracker App.
                 </p>
+                <Image src="/NoRecord.png" fluid />
                 <Link href="/addData">
-                    <Button variant="primary" className="w-50">Get Started</Button>
+                    <Button variant="primary" >Get Started</Button>
                 </Link>
            </Card>
-           <Image src="https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png" fluid />
+           
             </Jumbotron>
        </React.Fragment>
 	)
