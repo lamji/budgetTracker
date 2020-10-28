@@ -38,6 +38,14 @@ export default function Login(){
         }
 
         fetch(`${ AppHelper.API_URL }/users/verify-google-id-token`, payload).then(AppHelper.toJSON).then(data => {
+            if(tokenId === null){
+            <p className="text-center">
+            <Spinner animation="grow" role="status">
+            <span className="sr-only">Loading...</span>
+            </Spinner>
+            Wait ...
+            </p>
+            }
             if (typeof data.accessToken !== 'undefined') {
                 localStorage.setItem('token', data.accessToken)
                 retrieveUserDetails(data.accessToken)

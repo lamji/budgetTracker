@@ -223,12 +223,12 @@ if(categoryName === "Add Category"){
         <Button variant="primary" disabled>
             <Spinner
             as="span"
-            animation="border"
+            animation="grow"
             size="sm"
             role="status"
             aria-hidden="true"
             />
-            <span className="sr-only">Loading...</span>
+            Retrieving data..
         </Button>
         </>
          : 
