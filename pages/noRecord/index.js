@@ -35,7 +35,7 @@ export default function Login(){
                 <p className="text-white text-10">
                     This is a simple budget tracker App.
                 </p>
-                <Image src="/NoRecord.png" className="w-100" fluid />
+                <Image src="/chart.gif" className="w-100" fluid />
                 <Link href="/addData">
                     <Button variant="primary" >Get Started</Button>
                 </Link>
