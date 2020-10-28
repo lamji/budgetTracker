@@ -13,7 +13,7 @@ export default function Login(){
     const [description, setDescription] = useState('')
     const [categoryName, setCategoryName] = useState('')
     const [userData, setUserData] = useState('')
-    const [balance, setBalance] = useState(0)
+    const [balance, setBalance] = useState(balance)
     const [amountButton, setAmountButton] = useState(false)
     const [expensesButton, setExpensesButton] = useState(false)
     const [amount, setAmount] = useState('')
@@ -218,7 +218,7 @@ if(categoryName === "Add Category"){
         <Card className="p-5" id="chart">
         <div className="text-center">
         {balance < 0 ? 
-        <h3 className="balance text-danger">Balance ₱ {ToString(balance)}.00</h3>  
+        <h3 className="balance text-danger">Balance ₱ {ToString(balance)}</h3>  
         :
         <h3 className="balance">Balance ₱ {ToString(balance)}</h3> 
         }
@@ -342,7 +342,7 @@ if(categoryName === "Add Category"){
                             </Col>
                         </Row>
                     </Col>
-                    <Button variant="outline-primary" className="button text-muted ml-1 w-100 mx-3 " type="submit" id="submitBtn2">Add Expeses</Button>
+                    <Button variant="outline-primary" className="button text-muted ml-1 w-100 mx-3 px-1 " type="submit" id="submitBtn2">Add Expeses</Button>
                 </Row>
             </Form>
             </>
