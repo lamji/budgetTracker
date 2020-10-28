@@ -5,7 +5,6 @@ import Router from 'next/router'
 import Swal from 'sweetalert2'
 import UserContext from '../../UserContext';
 import AppHelper from '../../app-helper'
-import FbLogin from '../fbLogin/index'
 import RegLogin from '../reLogin/index'
 
 export default function Login(){
@@ -90,7 +89,7 @@ export default function Login(){
                             cookiePolicy={ 'single_host_origin' }
                             className="socialButton p-0 text-centerr"
                         />
-                    <FbLogin />
+                    {/* <FbLogin /> */}
                 </Col>
                 </Col>
             </Row>
