@@ -70,7 +70,7 @@ export default function Login(){
                 alt="React Bootstrap logo"
             />
             </Navbar.Brand>
-            <h4 className="text-white">BUDGET TRACKER APP</h4>
+            <h4 className="text-white">iTrack</h4>
         </Navbar>
             <Row className="m-0">
                 <Col xs={12} md={7} className="">

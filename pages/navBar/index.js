@@ -63,7 +63,7 @@ export default function index(){
         <React.Fragment>
         <Row variant="" className="m-0 py-1 bg-dark text-white">
             <Col xs={12} md={9} className="logo">
-                <h4 className="my-3">Budget Tracker App</h4>
+                <h4 className="my-3">iTrack</h4>
             </Col>
             <Col xs={12} md={3} className="p-2">
             <Dropdown>
