@@ -81,14 +81,14 @@ export default function index() {
 	                <Form.Control className="inputText" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required/>
 	            </Form.Group>
 	            {isActive ?
-                    <><Button  type="submit" id="submitBtn" className="button text-muted mr-1">Login</Button>
+                    <><Button  type="submit" id="submitBtn" className="button text-muted mr-1 btn-sm">Login</Button>
 	                <Link href="/register">
-                        <Button className="button text-muted ml-1">Sign Up</Button>
+                        <Button className="button text-muted ml-1 px-2 btn-sm" variant="outline-info">Sign Up</Button>
                     </Link></>
 	                :
-	                <><Button  type="submit" id="submitBtn" variant="outline-danger" className="button text-muted ml-1" disabled>Login</Button>
+	                <><Button  type="submit" id="submitBtn" variant="outline-danger" className="button text-muted ml-1 btn-sm" disabled>Login</Button>
                     <Link href="/register">
-                        <Button className="button text-muted ml-1">Sign Up</Button>
+                        <Button className="button text-muted ml-1 px-2 btn-sm" variant="outline-info">Sign Up</Button>
                     </Link>
                     </>
 	            }

@@ -8,7 +8,7 @@ export default function index(){
 	useEffect(() => {
 		unsetUser();
 		Router.push('/login')
-	}, [])
+	},[])
 
 	return null
 }

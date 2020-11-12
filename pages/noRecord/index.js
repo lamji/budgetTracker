@@ -30,17 +30,16 @@ export default function Login(){
 	return(
        <React.Fragment>
            <NavBar />
-           <Jumbotron className="custom-jumbo text-center getJumbo px-0 ">
+           <Jumbotron className="noRec-main">
            <Card className="p-4 welcomeText text-muted pt-4">
             <h3>Welcome! <b className="text-primary">{userName}</b> to iTrack </h3>
                 <p className="text-muted text-10">
                     A simple budget tracker that will manage your expenses and income.
                 </p>
                    <Link href="/addData">
-                    <Button variant="primary" className=" mx-auto mb-2 no-record-button" >Get Started</Button>
+                    <Button variant="primary" className="mx-auto mb-2" >Get Started</Button>
                 </Link>
-             <Alert variant="info" className="text-center mx-auto no-record-alert">* POS and inventory feature coming soon! <br />
-             * Deleting and Editing record are not include in trial version.</Alert>
+             <Alert variant="info" className="text-center mx-auto"> POS and inventory feature coming soon!</Alert>
            </Card>
            
             </Jumbotron>

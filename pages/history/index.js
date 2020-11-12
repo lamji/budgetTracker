@@ -14,22 +14,26 @@ export default function index(){
   const [transactionDate, setTransactionDate] = useState('')
   const [incomevalue, setIncomeValue] = useState(false)
   const [expensevalue, setExpenseValue] = useState(false)
-  const [limitValue, setLimitValue] = useState(false)
-  const [nolimitValue, setNoLimitValue] = useState(true)
   const[allvalue, setAllValue] = useState(true)
   const [searchResult, setSearchResult] = useState('')
-  const [localTransaction, setLocaleTransaction] =useState("")
-  
-
-//   const today = moment();
-//   console.log(today.format('dddd mm:ss'));
-
-
+  const [userID, setUserID] = useState('')
+  const [balance, setBalance] = useState(null)
+  const [amount, setAmount] = useState('')
+  const [category, setCategory] = useState('')
+  const [desciption, setDesciption] = useState('')
+  const [showEdit, setShowEdit] = useState(false);
+  const [transactionID, setTransactionID] = useState('')
+  const [editTransactionType, setEditTransactionType] = useState('')
+  const [recordInfo, setRecordInfo] =useState([])
+  const handleClose2 = () => {
+    setShowEdit(false)
+    setAmount('')
+    setCategory('')
+    setDesciption('')
+  }
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-
 
     useEffect(() =>{
         fetch(`${ AppHelper.API_URL }/users/details`,{
@@ -39,6 +43,8 @@ export default function index(){
         })
         .then(res => res.json())
         .then(data => {
+            setUserID(data._id)
+            setBalance(data.balance)
             const data2 = data.transactions.filter(res => {
                 return res.isActive === true
             })
@@ -62,11 +68,12 @@ export default function index(){
                 setTtransaction(active)
         }
     })   
-    },[transaction, incomevalue, expensevalue, allvalue]) 
-    var items = ['bill', 'hill', 'dill', 4, 5, 6, 7, 8, 9, 10];
-
-    function DeleteThis(userId){
-        console.log(userId)
+    },[transaction, incomevalue, expensevalue, allvalue,balance]) 
+ 
+   
+    function DeleteThis(record){
+        let amount = record.amount
+        let transactionType = record.type
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -84,12 +91,11 @@ export default function index(){
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
                     },
                     body: JSON.stringify({ 
-                        userId:userId
+                        transactionId:record._id
                     })
                   })
                   .then(res => res.json())
                   .then(data => {
-                      console.log(data)
                       Swal.fire(
                         'Deleted!',
                         'Your file has been deleted.',
@@ -97,7 +103,42 @@ export default function index(){
                         )
                       setShow(false)
                   })
-             
+                  if(transactionType === "Income"){
+                     //retrive details to update balance
+                        fetch(`${ AppHelper.API_URL }/users/updateBalance`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('token')}` 
+                            },
+                            body: JSON.stringify({ 
+                                userId: userID,
+                                balanceAfterTransaction: balance - parseFloat(amount)
+                            })
+                            
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            window.location.reload()
+                        })
+                  }
+                  if(transactionType === "Expenses"){
+                     //retrive details to update balance
+                  fetch(`${ AppHelper.API_URL }/users/updateBalance`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` 
+                    },
+                    body: JSON.stringify({ 
+                        userId: userID,
+                        balanceAfterTransaction: balance + parseFloat(amount)
+                    })
+                    
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        window.location.reload()
+                    })
+                  }
             }
           })
         
@@ -119,8 +160,125 @@ export default function index(){
             setTtransaction(active)
          })
     }
+     // add Expenses Function
+     function EditThis(record){
+        setRecordInfo(record)
+        setShowEdit(true)
+    }
+    
+    function EditCategory(e){
+        e.preventDefault();
+        fetch(`${ AppHelper.API_URL }/users/EditRecord`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            },
+            body: JSON.stringify({ 
+                userId:userID,
+                categoryName:category,
+                description:desciption,
+                amount:amount,
+                transactionId:recordInfo._id
+
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+         })
+            Swal.fire({
+                title: 'Do you want to save the changes?',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: `Save`,
+                denyButtonText: `Don't save`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    if(recordInfo.type === "Income"){
+                        fetch(`${ AppHelper.API_URL }/users/updateBalance`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('token')}` 
+                            },
+                            body: JSON.stringify({ 
+                                userId: userID,
+                                balanceAfterTransaction: balance - recordInfo.amount + parseFloat(amount)
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            Swal.fire('Saved!', '', 'success')
+                            window.location.reload()
+                            setShowEdit(false)
+                        })
+                    }else if(recordInfo.type === "Expenses"){
+                        console.log(balance - recordInfo.amount - parseFloat(amount))
+                        fetch(`${ AppHelper.API_URL }/users/updateBalance`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('token')}` 
+                            },
+                            body: JSON.stringify({ 
+                                userId: userID,
+                                balanceAfterTransaction: balance + recordInfo.amount - parseFloat(amount)
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            Swal.fire('Saved!', '', 'success')
+                            window.location.reload()
+                            setShowEdit(false)
+                        })
+                    }
+                   
+                } else if (result.isDenied) {
+                  Swal.fire('Changes are not saved', '', 'info')
+                  setAmount('')
+                  setCategory('')
+                  setDesciption('')
+                }
+              })
+    }
+   
     return(
         <React.Fragment>
+        <Modal show={showEdit} onHide={handleClose} className="bg-light">
+            <Modal.Body id="Edit-Record-Modal">
+            <h6>Edit Record</h6>
+            <Form onSubmit={(e) =>  EditCategory(e)} className="mb-3">
+                <Form.Group>
+                <Form.Label className="text-muted">New Category</Form.Label>
+                    <Form.Control type="text"  className="inputText py-0" placeholder={recordInfo.categoryName} value={category} onChange={(e) => {
+                        setCategory(e.target.value)
+                    }} required/>
+                </Form.Group>
+                <Row className="m-0">
+                    <Col md={6} xs={6} className="px-0">
+                        <Form.Group>
+                        <Form.Label className="text-muted">New Description</Form.Label>
+                            <Form.Control type="text"  className="inputText py-0 " placeholder={recordInfo.description}  value={desciption} onChange={(e) => {
+                        setDesciption(e.target.value)
+                    }} required/>
+                        </Form.Group>
+                    </Col>
+                    <Col md={4} xs={6} className="px-0 mx-3">
+                    <Form.Group>
+                    <Form.Label className="text-muted">New Amount</Form.Label>
+                    <Form.Control type="text"  className="inputText py-0 " placeholder={recordInfo.amount}  value={amount} onChange={(e) => {
+                       setAmount(e.target.value)
+                    }} required/>
+                    </Form.Group>
+                    </Col>
+                </Row>
+                <Button variant="danger" onClick={handleClose2} >
+                    Close
+                </Button>
+                <Button variant="primary" type="submit" id="submitBtn2">
+                    Save Changes
+                </Button>
+            </Form>
+            </Modal.Body>
+        </Modal>
          <Row className="m-0 p-2">
                     <Col xs={12} md={6} className="text-center bg-dark text-white">
                     <Nav className="justify-content-center mt-3 text-10" activeKey="/home">
@@ -169,15 +327,16 @@ export default function index(){
                 <Alert variant="success" className="text-center mt-4" id="record">No Records Yet!</Alert>
                 :
                 <>
-                <Col xs={12} lg={12} id="record" className="bodyContent overflow-auto">
+                <Col xs={12} lg={12} id="record" className="bodyContent">
 					<Table striped bordered hover className="w-100" >
 						<thead>
-                            <tr className="t-head fixed">
+                            <tr>
                                 <th>Date</th>
                                 <th>Transaction</th>
                                 <th>Amount Added</th>
                                 <th>Transacation Type</th>
                                 <th>Description</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody className="t-body text-14">
@@ -188,17 +347,16 @@ export default function index(){
                         				<td className="text-14">{record.categoryName}</td>
                                         <td className="text-14"> ₱ {AddComma(record.amount)}</td>
                                         <td className="text-14">{record.type}</td>
-                                        <td className="text-14">
-                                        <Row className="m-0">
-                                            <Col md={8} xs={12}>
-                                                {record.description}
-                                            </Col>
-                                            <Col md={4} xs={12} className="px-2 text-right ">
-                                                <a onClick={(e) => {
-                                                    DeleteThis(record._id)
-                                                }} className="text-muted text-right"><Image src="/delete.png" className="buttonimgDel" /></a>
-                                            </Col>
-                                        </Row>
+                                        <td className="text-14">{record.description}</td>
+                                        <td className="text-center px-0">
+                                            <a onClick={(e) => {
+                                                    DeleteThis(record)
+                                                }} className="text-muted text-right"><Image src="/delete.png" className="buttonimgDel" />
+                                            </a>
+                                            <a onClick={(e) => {
+                                                    EditThis(record)
+                                                }} className="text-muted text-right"><Image src="/edit.png" className="buttonimgDel" />
+                                            </a>
                                         </td>
 									</tr>
                         		)
@@ -235,7 +393,8 @@ export default function index(){
 										} }>View</td>
 										<Modal
 											show={show}
-											onHide={handleClose}
+                                            onHide={handleClose}
+                                            onHide={handleClose}
 											backdrop="static"
 											keyboard={false}
 										>
@@ -260,9 +419,14 @@ export default function index(){
 												</Col>
 												</Row>
                                                 <Col md={4} xs={12} className="px-2 text-center ">
-                                                <a onClick={(e) => {
-                                                    DeleteThis(record._id)
-                                                }} className="text-muted mx-3"><Image src="/delete.png" className="buttonimgDel mr-3" />Delete this Record</a>
+                                                    <a onClick={(e) => {
+                                                        DeleteThis(record._id)
+                                                    }} className="text-muted mx-3"><Image src="/delete.png" className="buttonimgDel" />Delete
+                                                    </a>
+                                                    <a onClick={(e) => {
+                                                            EditThis(record._id)
+                                                        }} className="text-muted text-right"><Image src="/edit.png" className="buttonimgDel" />Edit
+                                                    </a>
                                             </Col>
 											</Modal.Body>
 											

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, Button , Row, Col, Nav, Image,Jumbotron, Spinner,  Container, Tabs, Tab, Alert, Form} from 'react-bootstrap'
+import { Card, Button , Row, Col, Nav, Image,  Container, Tabs, Tab, Alert, Form} from 'react-bootstrap'
 import NavBar from '../navBar/index'
 import History from '../history/index'
 import ToString from '../../toString'
@@ -13,11 +13,12 @@ export default function Login(){
     const [description, setDescription] = useState('')
     const [categoryName, setCategoryName] = useState('')
     const [userData, setUserData] = useState('')
-    const [balance, setBalance] = useState(null)
+    const [balance, setBalance] = useState(0)
     const [amountButton, setAmountButton] = useState(false)
     const [expensesButton, setExpensesButton] = useState(false)
     const [amount, setAmount] = useState('')
     const [finalAmount, setFinalAmount] = useState('')
+    const [transactionType, setTransactionType] = useState("Income")
     const [isActive, setIsActive] = useState(false)
     const [isActive2, setIsActive2] = useState(false)
     const [sort, setSort] =useState(0)
@@ -74,7 +75,6 @@ export default function Login(){
                 return res.categoryName
             })                                                                        
             var unique = Array.from(new Set(categoryRes))                                                                   
-            console.log(unique)
             setCategories(unique)
         })
        
@@ -197,7 +197,7 @@ export default function Login(){
                     setShow(true)
                   
                     Swal.fire({
-                        text: `₱: ${ToString(amount)} Successfuly Added to Income!`,
+                        text: `₱: ${ToString(amount)} Successfuly Added to Expenses!`,
                         icon: 'success',
                         confirmButtonColor: '#3085d6',
                         confirmButtonText: 'OK'
@@ -214,9 +214,9 @@ if(categoryName === "Add Category"){
 	return(
         <React.Fragment>
         <NavBar />
-        <Container className="shadow container-holder">
-        <Card className="p-2" id="chart">
-        <div className="text-center">
+        <Container className="">
+        <Card className="p-2 chart">
+        <div className="text-center ">
         {balance === null ?
         <>
         <Jumbotron className="text-center">
@@ -234,7 +234,7 @@ if(categoryName === "Add Category"){
         </>
          : 
         <>
-        {balance < 0 ?<h3 className="balance text-danger py-3">Balance ₱ {ToString(balance)}</h3>  : <h3 className="balance py-3">Balance ₱ {ToString(balance)}</h3> }
+        {balance < 0 ?<h3 className="balance text-danger py-3">Balance ₱ {ToString(balance)}</h3>  : <h3 className="balance py-3 text-white">Balance ₱ {ToString(balance)}</h3> }
         
         </>
         }
@@ -368,10 +368,10 @@ if(categoryName === "Add Category"){
             <Tab eventKey="home" title="History" className="text-muted text-12 bg-light">
                 <History />
             </Tab>
-            <Tab eventKey="profile" title="Monthly Income"  className="bg-light">
+            <Tab eventKey="profile" title="Monthly Income"  className="bg-light p-3">
                <Chart />
             </Tab>
-            <Tab eventKey="contact" title="Monthly Expense" className="bg-light">
+            <Tab eventKey="contact" title="Monthly Expense" className="bg-light p-3">
             <ExpensesChart />
             </Tab>
             </Tabs>

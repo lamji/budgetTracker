@@ -63,10 +63,10 @@ export default function insights(){
        
    return(
        <React.Fragment>
-        <Row className="m-0">
-            <Col xs={12} md={8} className="my-3 shadow">
+        <Row className="m-0 p-4">
+            <Col xs={12} md={8} className="my-3 p-5">
             {isActive ?
-                <LineChart figuresArray={monthlyIncome} label={`Yearly Charts`} Month={labels} />
+            <LineChart figuresArray={monthlyIncome} label={`Yearly Charts`} Month={labels} />
              :<MonthlyChart figuresArray={trasnsactionData} label={`Monthly Charts`} Month={labels} /> }
             </Col>
             <Col xs={12} md={4} className="my-3 p-3">

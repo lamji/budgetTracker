@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { UserProvider } from '../UserContext';
