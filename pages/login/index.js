@@ -65,7 +65,7 @@ export default function Login(){
                 <hr />
                 <Col className="text-center px-1">
                 <GoogleLogin
-                            clientId="481882809701-abbu00gnpcn2jo4kqv3hhi7ovv4v38mr.apps.googleusercontent.com"
+                            clientId="``481882809701-abbu00gnpcn2jo4kqv3hhi7ovv4v38mr.apps.googleusercontent.com``"
                             buttonText="Login Using Google"
                             onSuccess={ authenticateGoogleToken }
                             onFailure={ authenticateGoogleToken }
